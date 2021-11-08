@@ -1,8 +1,9 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
+import {v4 as uuidv4} from 'uuid'
 
-export const Form = () => {
+export const Form = ({ onSend }) => {
   const [value, setValue] = useState('');
-  const inputRef = useRef();
+  let myId = uuidv4()
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -10,18 +11,18 @@ export const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(value);
-
-    const refValue = inputRef.current.value;
-    console.log(refValue);
-
+    onSend({
+      author: 'User',
+      text: value,
+      id: myId
+    })
     setValue('');
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <input ref={inputRef} type="text" value={value} onChange={handleChange} />
-      <input type="submit" />
+      <input className="textField" type="text" value={value} onChange={handleChange} />
+      <input className="submitBtn" type="submit" />
     </form>
   )
 }

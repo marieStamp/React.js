@@ -1,44 +1,45 @@
 import './App.scss'
-import { SayHello } from './components/Message/Message'
-import { Counter } from "./components/Counter/Counter";
-import { Form } from "./components/Form/Form";
-import { useState } from "react";
+// import { SayHello } from './components/Message/Message'
+// import { Counter } from "./components/Counter/Counter";
+import { Form } from "./components/Form/Form"
+import { useCallback, useEffect, useState } from "react"
+import { MessagesList } from "./components/MessagesList/MessagesList"
+import {v4 as uuidv4} from 'uuid'
 
 function App() {
-  const [text, setText] = useState("i am a prop");
-  const [showCounter, setShowCounter] = useState(true);
-  const [messages, setMessages] = useState(["text1", "text2"]);
+  const MessageList = []
 
-  const handleClick = () => {
-    alert("click");
-    setText("123" + Math.random());
-  };
+  let myId = uuidv4()
+  const [messages, setMessages] = useState(MessageList);
+  const handleSend = useCallback((nextMessage) => {
+    setMessages(prevMessage => [...prevMessage, nextMessage])
+  }, [])
 
-  const handleToggleCounter = () => {
-    setShowCounter((prevShow) => !prevShow);
-  };
+  useEffect(() => {
+    if(messages.length && messages[messages.length - 1].author !== 'ChatBot')
+    {
+      const timeout = setTimeout(() => handleSend({
+        author: 'ChatBot',
+        text: 'We answer You in a minute, please, wait!',
+        id: myId
+      }), 3000)
+      return() => clearTimeout(timeout)
+    }
+  }, [handleSend, messages, myId])
+
   return (
     <div className="App">
+      <div className="wrapper">
       <header className="App_header">
-        {/* <SayHello message='Hello, my Friend' />
-        
+      ChatBot
       </header>
-    </div>
-  );
-  } */
-  messages.map((mes) => (
-    <div>{mes}</div>
-  ))}
-  <SayHello message={text} onMessageClick={handleClick} />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <button onClick={handleToggleCounter}>
-          {showCounter ? "hide " : "show "} counter
-        </button>
-        {/* {showCounter && <Counter text={text} />} */}
-        <Form />
-      </header>
+      <main>
+      <MessagesList messages={ messages } />
+      </main>
+      </div>
+      <footer>
+      <Form onSend={ handleSend }/>
+      </footer>
     </div>
   );
 }
