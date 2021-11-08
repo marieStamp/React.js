@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {v4 as uuidv4} from 'uuid'
+import { AUTHORS } from '../../utils/constants'
 
 export const Form = ({ onSend }) => {
   const [value, setValue] = useState('');
@@ -12,7 +13,7 @@ export const Form = ({ onSend }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSend({
-      author: 'User',
+      author: AUTHORS.User,
       text: value,
       id: myId
     })

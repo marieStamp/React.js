@@ -5,6 +5,7 @@ import { Form } from "./components/Form/Form"
 import { useCallback, useEffect, useState } from "react"
 import { MessagesList } from "./components/MessagesList/MessagesList"
 import {v4 as uuidv4} from 'uuid'
+import { AUTHORS } from './utils/constants'
 
 function App() {
   const MessageList = []
@@ -16,7 +17,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    if(messages.length && messages[messages.length - 1].author !== 'ChatBot')
+    if(messages.length && messages[messages.length - 1].author !== AUTHORS.ChatBot)
     {
       const timeout = setTimeout(() => handleSend({
         author: 'ChatBot',
