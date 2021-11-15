@@ -1,0 +1,18 @@
+.links {
+    display: flex;
+    margin: 0;
+    justify-content: center;
+    font-size: larger;
+    font-weight: 600;
+    padding-top: 20px;
+}
+.mainLinks {
+    list-style-type: none;
+    margin-right: 30px;
+}
+.eachLink {
+    text-decoration: none;
+}
+.eachLink:hover {
+    color: #e4ebec;
+}

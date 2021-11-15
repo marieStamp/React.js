@@ -8,7 +8,6 @@ import TextField from '@mui/material/TextField';
 export const Form = ({ onSend }) => {
   const [value, setValue] = useState('');
   const inputRef = useRef();
-  let myId = uuidv4()
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -19,7 +18,7 @@ export const Form = ({ onSend }) => {
     onSend({
       author: AUTHORS.User,
       text: value,
-      id: myId
+      id: uuidv4()
     })
     inputRef.current?.focus();
     setValue('');
