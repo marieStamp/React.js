@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   &_header {
-    background-color: rgb(39, 186, 235);
+    background-color: #187999;
     min-height: 80px;
     display: flex;
     flex-direction: column;
@@ -31,7 +31,8 @@
 .messageWrap {
   display: flex;
   flex-direction: column;
-  padding: 30px
+  padding: 30px;
+  width: 100%;
 }
 .message {
   display: flex;
@@ -45,7 +46,6 @@
   &_text {
   color: #686d71;
   font-size: x-large;
-  // width: fit-content;
   border: 1px solid #9dacdae3;
   border-radius: 10px;
   padding: 5px;
@@ -64,7 +64,7 @@ main {
   min-height: 610px;
 }
 footer {
-  background-color: rgb(39, 186, 235);
+  background-color: #187999;
   height: 80px;
   align-items: center;
   display: flex;
@@ -72,7 +72,6 @@ footer {
 }
 form {
   display: flex;
-  height: 40px;
 }
 .textField {
   width: 450px;
@@ -80,11 +79,8 @@ form {
   background-color: lightblue;
   border-radius: 5px;
   font-size: larger;
+  margin-right: 20px;
 }
-.submitBtn {
-  margin-left: 20px;
-  border-radius: 20px;
-  background-color: #006fff;
-  border: transparent;
-  color: aquamarine;
+.chats {
+  display: flex;
 }
