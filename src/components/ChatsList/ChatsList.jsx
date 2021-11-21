@@ -1,7 +1,7 @@
 import React from 'react'
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
+import "./chatsList.scss"
+import { NavLink } from "react-router-dom"
+
 
 const chatsList = [
   {
@@ -19,12 +19,22 @@ const chatsList = [
 ]
 export const ChatsList = () => {
     return (
-      <List sx={{ width: '100%', maxWidth: 300, height: '100%', minHeight: '610px', bgcolor: '#26c6da' }}>
-        {chatsList.map((item) => (
-                                <ListItem button key={item.id}>
-                                    <ListItemText primary={item.name}/>
-                                </ListItem>
-                            ))}
-      </List>
+      <main>
+        <h3>Chats list</h3>
+        <ul className="chatsList">
+        {chatsList.map((chat) => (
+          <>
+            <li>
+              <NavLink className="eachChat"
+                style={({ isActive }) => ({ color: isActive ? "black" : "white" })}
+                to={`/chats/${chat.id}`}
+              >
+                {chat.name}
+              </NavLink>
+            </li>
+          </>
+        ))}
+      </ul>
+      </main>
     )
   }
