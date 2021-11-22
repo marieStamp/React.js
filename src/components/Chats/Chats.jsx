@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { Form } from "../Form/Form";
 import { MessagesList } from "../MessagesList/MessagesList"
 import { AUTHORS } from "../../utils/constants"
@@ -17,7 +17,7 @@ const MessageList = {
 
 function Chats() {
   const { chatId } = useParams()
-  const parentRef = useRef()
+  // const parentRef = useRef()
 
   const [messages, setMessages] = useState(MessageList);
 
