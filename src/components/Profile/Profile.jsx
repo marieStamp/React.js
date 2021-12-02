@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useSelector, connect, shallowEqual } from "react-redux";
-// import { MessagesList } from "../MessagesList/MessagesList";
 import { changeName, toggleCheckbox } from "../../store/profile/actions";
 import { selectName } from "../../store/profile/selectors";
 
