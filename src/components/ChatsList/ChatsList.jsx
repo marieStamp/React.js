@@ -7,20 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { addChat } from "../../store/chats/actions";
 import { selectChats } from "../../store/chats/selectors";
 
-// const chatsList = [
-//   {
-//     name: "Work",
-//     id: 0,
-//   },
-//   {
-//     name: "Crazy friends",
-//     id: 1,
-//   },
-//   {
-//     name: "Lovely family",
-//     id: 2,
-//   },
-// ];
 export const ChatsList = () => {
   const chatsList = useSelector(selectChats);
   const dispatch = useDispatch();
