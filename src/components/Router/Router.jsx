@@ -5,6 +5,7 @@ import { Home } from "../Home/Home";
 import { ConnectedProfile } from "../Profile/Profile";
 import "./router.scss";
 import { ConnectedChats } from "../Chats/Chats";
+import { Food } from "../Food/Food";
 
 export const Router = () => {
   return (
@@ -25,6 +26,11 @@ export const Router = () => {
             Profile
           </Link>
         </li>
+        <li className="mainLinks">
+          <Link className="eachLink" to="/food">
+            Breweries
+          </Link>
+        </li>
       </ul>
 
       <Routes>
@@ -34,6 +40,7 @@ export const Router = () => {
           <Route path=":chatId" element={<ConnectedChats />} />
         </Route>
         <Route path="profile" element={<ConnectedProfile />} />
+        <Route path="food" element={<Food />} />
         <Route path="*" element={<main>404 Not Found</main>} />
       </Routes>
     </BrowserRouter>
