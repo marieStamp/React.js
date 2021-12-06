@@ -20,7 +20,7 @@ export const Food = () => {
 
   useEffect(() => {
     requestFood();
-  }, []);
+  }, [requestFood]);
 
   return (
     <>
