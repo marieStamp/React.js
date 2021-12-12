@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./chatsList.scss";
 import { TextField } from "@mui/material";
 import { ChatItem } from "../ChatItem/ChatItem";
 import { v4 as uuidv4 } from "uuid";
 import { useDispatch, useSelector } from "react-redux";
-import { addChat } from "../../store/chats/actions";
 import { selectChats } from "../../store/chats/selectors";
+import { addChatWithFb, initChatsTracking } from "../../store/chats/actions";
 
 export const ChatsList = () => {
   const chatsList = useSelector(selectChats);
   const dispatch = useDispatch();
   const [value, setValue] = useState("");
+
+  useEffect(() => {
+    dispatch(initChatsTracking());
+  }, [dispatch]);
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -19,7 +23,7 @@ export const ChatsList = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newId = uuidv4();
-    dispatch(addChat({ name: value, id: newId }));
+    dispatch(addChatWithFb({ name: value, id: newId }));
     setValue("");
   };
   return (
