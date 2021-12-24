@@ -7,6 +7,7 @@ import {
   selectFoodLoading,
 } from "../../store/food/selectors";
 import { getFood } from "../../store/food/actions";
+import "./food.scss";
 
 export const Food = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ export const Food = () => {
 
   useEffect(() => {
     requestFood();
-  }, [requestFood]);
+  }, []);
 
   return (
     <>
@@ -29,11 +30,15 @@ export const Food = () => {
         <CircularProgress />
       ) : (
         <>
-          <button onClick={requestFood}>REQUEST</button>
+          <button className="foodBtn" onClick={requestFood}>
+            REQUEST
+          </button>
           {!!error && <h4>ERROR: {error}</h4>}
           <ul>
             {food.map((fd) => (
-              <li key={fd.id}>{fd.name}</li>
+              <li className="foodList" key={fd.id}>
+                {fd.name}
+              </li>
             ))}
           </ul>
         </>
