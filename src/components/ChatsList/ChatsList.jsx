@@ -29,13 +29,13 @@ export const ChatsList = () => {
   return (
     <div className="chatsListSide">
       <h3>Chats list</h3>
-      <ul className="chatsList">
+      <div className="chatsList">
         {chatsList.map((chat) => (
-          <li className="chatsList_item" key={chat.id}>
+          <div className="chatsList_item" key={chat.id}>
             <ChatItem chat={chat} />
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
       <form onSubmit={handleSubmit}>
         <TextField value={value} onChange={handleChange} />
         <button className="addChat">Add chat</button>

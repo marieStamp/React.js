@@ -16,7 +16,7 @@ function Chats({ msgs, sendMessage }) {
     (nextMessage) => {
       push(getChatMsgsListRefById(chatId), nextMessage);
     },
-    [chatId, sendMessage]
+    [chatId]
   );
 
   if (!msgs[chatId]) {

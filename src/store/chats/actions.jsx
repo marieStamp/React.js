@@ -26,9 +26,9 @@ export const addChatWithFb = (newChat) => (dispatch) => {
   set(getChatRefById(newChat.id), newChat);
 };
 
-// export const deleteChatWithFb = (chatId) => (dispatch) => {
-//   getChatRefById(chatId.id).remove();
-// };
+export const deleteChatWithFb = (chatId) => (dispatch) => {
+  getChatRefById(chatId.id).remove();
+};
 
 export const setChats = (chats) => ({
   type: SET_CHATS,

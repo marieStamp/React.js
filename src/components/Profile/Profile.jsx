@@ -5,7 +5,7 @@ import { selectName } from "../../store/profile/selectors";
 import { onValue, set } from "firebase/database";
 import { logOut, userRef } from "../../services/firebase";
 
-export const Profile = ({ checkboxValue, setName, changeChecked }) => {
+export const Profile = ({ showName, setName, changeChecked }) => {
   const name = useSelector(selectName, shallowEqual);
   const [value, setValue] = useState(name);
 
@@ -44,7 +44,8 @@ export const Profile = ({ checkboxValue, setName, changeChecked }) => {
   return (
     <>
       <h3>Profile</h3>
-      <input type="checkbox" checked={checkboxValue} onChange={handleChange} />
+      <input type="checkbox" checked={showName} onChange={handleChange} />
+      <span>Show name</span>
       <form className="signForm" onSubmit={handleSubmit}>
         <input
           className="signInput"

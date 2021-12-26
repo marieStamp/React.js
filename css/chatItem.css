@@ -1,8 +1,9 @@
 .dlt_button {
   border-radius: 10px;
   background-color: #517bd4;
-  color: lightblue;
+  color: whitesmoke;
 }
+
 .dlt_button.signout {
   margin-top: 10px;
   cursor: pointer;

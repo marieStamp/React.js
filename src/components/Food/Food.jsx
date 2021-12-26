@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React from "react";
 import { CircularProgress } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -19,9 +19,9 @@ export const Food = () => {
     dispatch(getFood());
   };
 
-  useEffect(() => {
-    requestFood();
-  }, []);
+  // useEffect(() => {
+  //   requestFood();
+  // }, []);
 
   return (
     <>

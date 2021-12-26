@@ -24,12 +24,12 @@ main {
   display: flex;
   margin-bottom: 10px;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
 }
 
 .addChat {
   border-radius: 10px;
   background-color: #517bd4;
-  color: lightblue;
+  color: whitesmoke;
   margin-left: 10px;
 }
